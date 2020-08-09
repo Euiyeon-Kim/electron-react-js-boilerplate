@@ -5,16 +5,16 @@ import { history, configuredStore } from './store';
 import './app.global.css';
 
 const store = configuredStore();
-
 const AppContainer = process.env.PLAIN_HMR ? Fragment : ReactHotAppContainer;
 
 document.addEventListener('DOMContentLoaded', () => {
-  // eslint-disable-next-line global-require
   const Root = require('./containers/Root').default;
   render(
-    <AppContainer>
-      <Root store={store} history={history} />
-    </AppContainer>,
+    React.createElement(
+      AppContainer,
+      null,
+      React.createElement(Root, { store: store, history: history })
+    ),
     document.getElementById('root')
   );
 });

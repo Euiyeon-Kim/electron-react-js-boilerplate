@@ -1,14 +1,14 @@
-.container {
+.home {
   position: absolute;
   top: 30%;
   left: 10px;
   text-align: center;
 }
 
-.container h2 {
+.home h2 {
   font-size: 5rem;
 }
 
-.container a {
+.home a {
   font-size: 1.4rem;
 }

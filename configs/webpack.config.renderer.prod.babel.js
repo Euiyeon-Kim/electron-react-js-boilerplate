@@ -23,11 +23,7 @@ export default merge(baseConfig, {
 
   target: process.env.E2E_BUILD ? 'electron-renderer' : 'electron-preload',
 
-  entry: [
-    'core-js',
-    'regenerator-runtime/runtime',
-    path.join(__dirname, '..', 'app/index.tsx'),
-  ],
+  entry: ['core-js', 'regenerator-runtime/runtime', path.join(__dirname, '..', 'app/index.jsx')],
 
   output: {
     path: path.join(__dirname, '..', 'app/dist'),
@@ -218,8 +214,7 @@ export default merge(baseConfig, {
     }),
 
     new BundleAnalyzerPlugin({
-      analyzerMode:
-        process.env.OPEN_ANALYZER === 'true' ? 'server' : 'disabled',
+      analyzerMode: process.env.OPEN_ANALYZER === 'true' ? 'server' : 'disabled',
       openAnalyzer: process.env.OPEN_ANALYZER === 'true',
     }),
   ],

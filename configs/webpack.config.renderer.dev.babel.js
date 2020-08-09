@@ -24,9 +24,7 @@ const port = process.env.PORT || 1212;
 const publicPath = `http://localhost:${port}/dist`;
 const dll = path.join(__dirname, '..', 'dll');
 const manifest = path.resolve(dll, 'renderer.json');
-const requiredByDLLConfig = module.parent.filename.includes(
-  'webpack.config.renderer.dev.dll'
-);
+const requiredByDLLConfig = module.parent.filename.includes('webpack.config.renderer.dev.dll');
 
 /**
  * Warn if the DLL is not built
@@ -53,7 +51,7 @@ export default merge(baseConfig, {
     ...(process.env.PLAIN_HMR ? [] : ['react-hot-loader/patch']),
     `webpack-dev-server/client?http://localhost:${port}/`,
     'webpack/hot/only-dev-server',
-    require.resolve('../app/index.tsx'),
+    require.resolve('../app/index.jsx'),
   ],
 
   output: {
